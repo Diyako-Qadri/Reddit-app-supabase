@@ -53,6 +53,7 @@ export type Database = {
           content: string | null
           created_at: string
           id: string
+          post_image: string | null
           slug: string
           title: string
           user_id: string
@@ -61,6 +62,7 @@ export type Database = {
           content?: string | null
           created_at?: string
           id?: string
+          post_image?: string | null
           slug: string
           title: string
           user_id: string
@@ -69,6 +71,7 @@ export type Database = {
           content?: string | null
           created_at?: string
           id?: string
+          post_image?: string | null
           slug?: string
           title?: string
           user_id?: string
@@ -88,16 +91,22 @@ export type Database = {
           created_at: string
           email: string
           id: string
+          profile_image: string | null
+          user_name: string
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
+          profile_image?: string | null
+          user_name: string
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
+          profile_image?: string | null
+          user_name?: string
         }
         Relationships: []
       }
