@@ -7,7 +7,7 @@ import Button from './button';
 import { LogOutButton } from './Log-out-Button';
 
 export const Header = async () => {
-  const supabase =  createClient();
+  const supabase = createClient();
 
   const {
     data: { user },
@@ -19,24 +19,27 @@ export const Header = async () => {
         <Image
           src={RedditLogo}
           alt="logo"
-          
-          className="h-12 w-12 md:h-24 md:w-24 "
+          className="h-12 w-12 md:h-16 md:w-16 "
         />{' '}
-        <h1 className="text-red-500 text-3xl font-extrabold hidden sm:block">Reddit</h1>
+        <h1 className="text-red-500 text-3xl font-extrabold hidden sm:block">
+          Reddit
+        </h1>
       </Link>
       {user ? (
-      <div className="flex items-center justify-end gap-2 w-[250px] max-w-1/2">
-        <Button type="button" size="tertiary" variant="tertiary">
-          <Link href="/create">Create post</Link>
-        </Button>
-    
-        <LogOutButton/>
-      
-         </div> ):(
-        <Button type="button" size="primary" variant="secondary">
-          <Link href="/auth/log-in">Log In</Link>
-        </Button>
-    )}
+        <div className="flex items-center justify-end gap-2 w-[250px] max-w-1/2">
+          <Button type="button" size="tertiary" variant="tertiary">
+            <Link href="/create">Create post</Link>
+          </Button>
+
+          <LogOutButton />
+        </div>
+      ) : (
+        <div className='w-20 md:w-28 flex items-center'>
+          <Button type="button" size="primary" variant="secondary">
+            <Link href="/auth/log-in">Log In</Link>
+          </Button>
+        </div>
+      )}
     </header>
   );
 };
