@@ -30,11 +30,10 @@ export const Header = async () => {
           <Button type="button" size="tertiary" variant="tertiary">
             <Link href="/create">Create post</Link>
           </Button>
-
           <LogOutButton />
         </div>
       ) : (
-        <div className='w-20 md:w-28 flex items-center'>
+        <div className="w-20 md:w-28 flex items-center">
           <Button type="button" size="primary" variant="secondary">
             <Link href="/auth/log-in">Log In</Link>
           </Button>

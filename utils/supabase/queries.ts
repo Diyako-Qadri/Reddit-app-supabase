@@ -5,11 +5,11 @@ import { type QueryData } from '@supabase/supabase-js';
 import { createClient } from './server';
 
 export const getHomePosts = async () => {
-  const supabase = await createClient();
+  const supabase = createClient();
 
   return supabase
     .from('posts')
-    .select('id, title, slug, users("email")')
+    .select('id, title, slug, users("email"), image, content')
     .order('created_at', { ascending: false });
 };
 
