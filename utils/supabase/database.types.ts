@@ -91,21 +91,21 @@ export type Database = {
           created_at: string
           email: string
           id: string
-          profile_image: string | null
+          profile_image: string 
           user_name: string
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
-          profile_image?: string | null
+          profile_image?: string
           user_name: string
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
-          profile_image?: string | null
+          profile_image?: string 
           user_name?: string
         }
         Relationships: []

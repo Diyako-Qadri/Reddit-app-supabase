@@ -1,5 +1,5 @@
 import { getHomePosts } from '@/utils/supabase/queries';
-import { HomePosts } from '../../components/Home/post';
+import { Posts } from '../../components/posts';
 
 export const revalidate = 60 * 15;
 
@@ -13,15 +13,15 @@ export default async function Home() {
         <div>no posts found</div>
       ) : (
         <section className="flex flex-col items-center gap-4">
-          {posts.map(({ id, title, slug, users, image, content }) => (
-            <HomePosts
+          {posts.map(({ id, title, slug, users, image, content}) => (
+            <Posts
               key={id}
               title={title}
               slug={slug}
-              author={users?.email || 'anonymous'}
+              author={users?.user_name || 'anonymous'}
               image={image ? image : undefined}
-              content={content}
-            />
+              content={content} 
+              authorImage={users.profile_image}            />
           ))}
         </section>
       )}

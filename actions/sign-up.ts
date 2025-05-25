@@ -3,6 +3,7 @@
 import { redirect } from 'next/navigation';
 
 import { createClient } from '@/utils/supabase/server';
+import { UploadImage } from '@/utils/supabase/upload-image';
 
 export const signUp = async (formData: FormData) => {
   const data = {
@@ -12,16 +13,25 @@ export const signUp = async (formData: FormData) => {
   };
 
   const supabase = await createClient();
-
   const {
     data: { user },
     error,
   } = await supabase.auth.signUp(data);
 
-  if ( user && user.email ) {
-    const { id, email } = user
-    await supabase.from('users').insert([{ id, email, user_name: data.user_name }])
-  }
+  const imageFile = formData.get('image');
+  if (!(imageFile instanceof File) && imageFile !== null) {
+    throw new Error('malformed image');
+  };
+  const imagePublicUrl = imageFile ? await UploadImage(imageFile) : null;
+
+  if (user && user.email) {
+    const { id, email } = user;
+    await supabase
+      .from('users')
+      .insert([
+        { id, email, user_name: data.user_name, profile_image: imagePublicUrl },
+      ]);
+  };
 
   console.log({ user, error });
 

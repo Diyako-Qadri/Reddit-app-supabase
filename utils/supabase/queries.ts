@@ -9,7 +9,7 @@ export const getHomePosts = async () => {
 
   return supabase
     .from('posts')
-    .select('id, title, slug, users("email"), image, content')
+    .select('id, title, slug, users("email", "profile_image", "user_name"), image, content')
     .order('created_at', { ascending: false });
 };
 
