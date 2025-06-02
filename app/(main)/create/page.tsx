@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { CreatePost } from '@/actions/create-post';
-import { Input } from '@/components/Input';
+import { Input } from '@/components/input';
 import { Textarea } from '@/components/textarea';
 import Button from '@/components/button';
 import { postSchema } from '@/actions/schemas';
@@ -44,7 +44,7 @@ export default function CratePage() {
             image: imageForm,
           });
         })}
-        className="flex w-full max-w-[48rem] flex-col gap-4"
+        className="flex w-full  flex-col gap-4"
       >
         <Input {...register('title')} label="title" error={errors.title} />
         <Input
