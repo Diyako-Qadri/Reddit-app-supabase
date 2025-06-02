@@ -8,7 +8,7 @@ export default async function Home() {
   
   console.log(posts, error)
   return (
-    <main className='my-6 w-full max-w-3xl px-6 flex flex-col  m-auto'>
+    <main className='my-6 w-full max-w-3xl  flex flex-col  m-auto'>
       {error || posts.length === 0 ? (
         <div>no posts found</div>
       ) : (
