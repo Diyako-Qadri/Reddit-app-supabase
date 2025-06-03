@@ -5,10 +5,8 @@ import Button from './button';
 
 export const Comments = async ({
   postId,
-  slug,
 }: {
   postId: string;
-  slug: string;
 }) => {
   const supabase = createClient();
 

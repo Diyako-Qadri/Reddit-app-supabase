@@ -17,7 +17,7 @@ export default async function PostPage({
   if (error || !post) notFound();
 
   const postId = post && post.id;
-  const { data: comments } = await supabase
+  const {} = await supabase
     .from('comments')
     .select('content')
     .eq('post_id', postId as string)

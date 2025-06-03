@@ -5,8 +5,8 @@ interface CommentItemProps {
   comment: {
     id: string;
     comment?: string;
-    user_id: string;
-    author: string;
+    user_id?: string;
+    author?: string;
   };
   userId: string | undefined;
   isAuthor: boolean | null;

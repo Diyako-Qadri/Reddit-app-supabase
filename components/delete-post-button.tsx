@@ -4,9 +4,8 @@ import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { Loader, Trash2 } from 'lucide-react';
 import { deletePost } from '@/actions/delete-post';
-import  Button  from './button';
 
-export const DeletePostButton = ({ postId }: { postId: string | undefined }) => {
+export const DeletePostButton = ({ postId }: { postId: string }) => {
   const { mutate, isPending } = useMutation({
     mutationFn: () => deletePost(postId),
     onError: error => toast.error(error.message),

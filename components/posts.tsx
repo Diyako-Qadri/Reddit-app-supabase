@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import fallbackImage from '@/public/profile_fallback.jpg';
 import { PenLine, UserRound } from 'lucide-react';
 import { DeletePostButton } from './delete-post-button';
 

@@ -23,7 +23,7 @@ export const Search = () => {
     };
   }, [inputValue]);
 
-  const { data, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ['search', delayedQuery],
     queryFn: async () => {
       if (inputValue.length > 1) {
