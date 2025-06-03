@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className='w-[100vw]'>
-      <body className={` antialiased`}>
+      <body className={` antialiased flex flex-col justify-center items-center`}>
         <QueryClientProvider>
           {children}
         </QueryClientProvider>
