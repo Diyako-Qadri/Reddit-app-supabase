@@ -46,7 +46,7 @@ export default async function PostPage({
               postId={post.id}
             />
           </div>
-          <Comments postId={postId} slug={params.slug} />
+          <Comments postId={postId}/>
         </header>
       </article>
     </main>
