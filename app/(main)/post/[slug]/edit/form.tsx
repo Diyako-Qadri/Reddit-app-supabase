@@ -9,7 +9,7 @@ import { z } from 'zod';
 import { useMutation } from '@tanstack/react-query';
 import { Tables } from '@/utils/supabase/database.types';
 import { editPost } from '@/actions/edit-post';
-import { Input } from '@/components/input';
+import { Input } from '@/components/input-component';
 import { createPostSchema } from '@/actions/schemas';
 import Button from '@/components/button';
 

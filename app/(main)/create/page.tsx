@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { CreatePost } from '@/actions/create-post';
-import { Input } from '@/components/input';
+import { Input } from '@/components/input-component';
 import { Textarea } from '@/components/textarea';
 import Button from '@/components/button';
 import { postSchema } from '@/actions/schemas';

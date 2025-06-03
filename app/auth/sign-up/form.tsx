@@ -1,6 +1,6 @@
 import { signUp } from '@/actions/sign-up';
 import Button from '@/components/button';
-import { Input } from '@/components/input';
+import { Input } from '@/components/input-component';
 
 export default function SignUpForm() {
   return (
