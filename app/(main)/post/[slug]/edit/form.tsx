@@ -10,7 +10,7 @@ import { useMutation } from '@tanstack/react-query';
 import { Tables } from '@/utils/supabase/database.types';
 import { editPost } from '@/actions/edit-post';
 import { Input } from '@/components/input';
-import { createPostSchema, postSchema } from '@/actions/schemas';
+import { createPostSchema } from '@/actions/schemas';
 import Button from '@/components/button';
 
 export const EditPostForm = ({
