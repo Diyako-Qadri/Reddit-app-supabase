@@ -17,7 +17,10 @@ export const postSchema = z.object({
   image: z.instanceof(FormData)
 })
 
-
+export const commentSchema = z.object({
+  content: z.string().min(1, "Comment must contain at least 1 character"),
+  post_id: z.string(),
+})
 
 export const createPostSchema = z.object({
     title: z.string().min(3, 'At least 3 characters').max(30, 'Max 30 characters'),

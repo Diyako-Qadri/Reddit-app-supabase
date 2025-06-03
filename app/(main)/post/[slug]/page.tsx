@@ -3,9 +3,10 @@ import { Posts } from '@/components/posts';
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { PenLine} from 'lucide-react';
+import { PenLine } from 'lucide-react';
 import { getSinglePost } from '@/utils/supabase/queries';
 import { DeletePostButton } from '@/components/delete-post-button';
+import { Comments } from '@/components/comments';
 
 export default async function PostPage({
   params,
@@ -18,6 +19,13 @@ export default async function PostPage({
 
   if (error || !post) notFound();
 
+  const postId = post && post.id;
+  const { data: comments } = await supabase
+    .from('comments')
+    .select('content')
+    .eq('post_id', postId as string)
+    .order('created_at', { ascending: true });
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -25,9 +33,9 @@ export default async function PostPage({
 
   return (
     <main>
-      <article>
+      <article className="flex justify-center flex-col">
         <header className="flex flex-col items-center justify-center">
-          <div className="space-y-1">
+          <div className="space-y-1 flex justify-center">
             <Posts
               key={post.id}
               title={post.title}
@@ -45,11 +53,12 @@ export default async function PostPage({
                 type="link"
                 href={`/post/${params.slug}/edit`}
               >
-                <PenLine className='hover:text-blue-500' />
+                <PenLine className="hover:text-blue-500" />
               </Link>
-              <DeletePostButton postId={post.id}/>
+              <DeletePostButton postId={post.id} />
             </div>
           )}
+          <Comments postId={postId} slug={params.slug} />
         </header>
       </article>
     </main>

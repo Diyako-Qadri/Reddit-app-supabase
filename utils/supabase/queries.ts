@@ -16,10 +16,17 @@ export const getSinglePost = async (
     .single();
 };
 
+export const getComments = async ( postId: string ) => {
+  const supabase = createClient();
+  return supabase
+    .from("comments")
+    .select("content")
+    .eq("post_id", postId)
+    .order("created_at", { ascending: false });
+};
 
 export const getHomePosts = async () => {
   const supabase = createClient();
-
   return supabase
     .from('posts')
     .select('id, title, slug, users("email", "profile_image", "user_name"), image, content')

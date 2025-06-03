@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import fallbackImage from '@/public/profile_fallback.jpg';
-
+import { UserRound } from 'lucide-react';
 export const Posts = ({
   author,
   authorImage,
@@ -20,16 +20,16 @@ export const Posts = ({
   return (
     <Link
       href={`/post/${slug}`}
-      className="flex w-full flex-col rounded-3xl bg-white p-4"
+      className="flex w-[98%] flex-col rounded-3xl bg-white p-4"
     >
       <div className="flex flex-row items-center gap-2 my-3">
-        <Image
-          src={authorImage || fallbackImage}
+      {authorImage ? <Image
+          src={authorImage}
           alt="author-image"
           className="rounded-[100%] contain-size"
           height={40}
           width={40}
-        />
+        /> : <UserRound /> }
         <span className="text-zinc-600 font-semibold">{author}</span>
       </div>
       
