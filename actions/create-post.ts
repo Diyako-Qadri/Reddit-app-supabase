@@ -28,7 +28,7 @@ export const CreatePost = async (data: z.infer<typeof postSchema>) => {
 
   const imagePublicUrl = imageFile ? await UploadImage(imageFile) : null;
 
-  const { data: post } = await supabase
+  const {} = await supabase
     .from('posts')
     .insert([
       {

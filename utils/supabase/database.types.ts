@@ -95,10 +95,10 @@ export type Database = {
           user_name: string
         }
         Insert: {
-          created_at?: string
+          created_at: string
           email: string
-          id?: string
-          profile_image?: string
+          id: string
+          profile_image: string
           user_name: string
         }
         Update: {

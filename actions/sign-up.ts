@@ -21,17 +21,20 @@ export const signUp = async (formData: FormData) => {
   const imageFile = formData.get('image');
   if (!(imageFile instanceof File) && imageFile !== null) {
     throw new Error('malformed image');
-  };
+  }
   const imagePublicUrl = imageFile ? await UploadImage(imageFile) : null;
-
   if (user && user.email) {
     const { id, email } = user;
-    await supabase
-      .from('users')
-      .insert([
-        { id, email, user_name: data.user_name, profile_image: imagePublicUrl },
-      ]);
-  };
+    await supabase.from('users').insert([
+      {
+        id: id,
+        email: email,
+        user_name: data.user_name,
+        profile_image: imagePublicUrl ?? '',
+         created_at: new Date().toISOString(), 
+      },
+    ]);
+  }
 
   console.log({ user, error });
 
