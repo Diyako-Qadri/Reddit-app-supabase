@@ -6,7 +6,7 @@ import { cn } from '@/utils/classnames'
 type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'htmlFor'> & {
   label?: string;
   error?: FieldError;
-  file?: string ;
+  file?: string | undefined;
 };
 
 export const Input = forwardRef<HTMLInputElement, Props>(
