@@ -6,7 +6,7 @@ import { Loader, Trash2 } from 'lucide-react';
 import { deletePost } from '@/actions/delete-post';
 import  Button  from './button';
 
-export const DeletePostButton = ({ postId }: { postId: string }) => {
+export const DeletePostButton = ({ postId }: { postId: string | undefined }) => {
   const { mutate, isPending } = useMutation({
     mutationFn: () => deletePost(postId),
     onError: error => toast.error(error.message),

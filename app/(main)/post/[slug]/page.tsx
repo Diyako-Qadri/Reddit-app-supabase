@@ -1,11 +1,8 @@
 // import Button from '@/components/button';
 import { Posts } from '@/components/posts';
 import { createClient } from '@/utils/supabase/server';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { PenLine } from 'lucide-react';
 import { getSinglePost } from '@/utils/supabase/queries';
-import { DeletePostButton } from '@/components/delete-post-button';
 import { Comments } from '@/components/comments';
 
 export default async function PostPage({
@@ -44,20 +41,11 @@ export default async function PostPage({
               image={post.image ? post.image : undefined}
               content={post.content}
               authorImage={post.users?.profile_image}
+              isAuthor={isAuthor}
+              paramsSlug={params.slug}
+              postId={post.id}
             />
           </div>
-          {isAuthor && (
-            <div className="flex w-full  max-w-[200px] gap-3">
-              <Link
-                className="flex flex-row gap-3"
-                type="link"
-                href={`/post/${params.slug}/edit`}
-              >
-                <PenLine className="hover:text-blue-500" />
-              </Link>
-              <DeletePostButton postId={post.id} />
-            </div>
-          )}
           <Comments postId={postId} slug={params.slug} />
         </header>
       </article>
