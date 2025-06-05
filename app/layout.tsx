@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className='w-[100vw]'>
+    <html lang="en">
       <body className={` antialiased flex flex-col justify-center items-center max-w-[100vw]`}>
         <QueryClientProvider>
           {children}

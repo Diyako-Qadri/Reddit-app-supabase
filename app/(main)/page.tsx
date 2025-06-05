@@ -8,11 +8,11 @@ export default async function Home() {
 
   console.log(posts, error);
   return (
-    <main className="my-6 w-full max-w-3xl  flex flex-col  m-auto">
+    <main className="my-6 w-full max-w-3xl mx-auto flex flex-row">
       {error || posts.length === 0 ? (
         <div>no posts found</div>
       ) : (
-        <section className="flex flex-col items-center">
+        <section className="flex flex-col w-full ">
           {posts.map(({ id, title, slug, users, image, content }) => (
             <Posts
               key={id}

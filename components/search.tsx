@@ -62,7 +62,7 @@ export const Search = () => {
 
   return (
     <section className="z-50 flex justify-center items-center bg-white py-1 pl-3 rounded-full">
-      <div className="flex flex-row gap-3 p-1  w-full max-w-[44rem] border-b-2 border-orange-400">
+      <div className="flex flex-row gap-3 p-1  w-[80%] max-w-[44rem] border-b-2 border-orange-400">
         <label className="flex justify-center" htmlFor="search">
           <SearchIcon size={20} color="gray" />
         </label>
@@ -95,7 +95,7 @@ export const Search = () => {
       ) : data?.length === 0 ? (
         <div className="z-40 absolute top-16 left-0 w-full justify-center items-center flex flex-col gap-1 rounded-lg ">
           {noResultsVisible && (
-            <div className="bg-neutral-200 rounded-lg w-[50%] p-2 border-2 shadow-lg">
+            <div className="bg-neutral-200 rounded-lg  p-2 border-2 shadow-lg">
               No posts found...
             </div>
           )}

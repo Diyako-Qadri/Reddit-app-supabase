@@ -29,10 +29,10 @@ export const Posts = ({
   return (
     <Link
       href={`/post/${slug}`}
-      className="flex w-[100%]  flex-col rounded-3xl bg-white p-4"
+      className="flex flex-col mx-auto items-start rounded-3xl bg-white p-4"
     >
-      <div className="flex flex-row items-center border-b-2 justify-between gap-2 my-3">
-        <div className='flex flex-row'>
+      <div className="flex flex-row items-center border-b-2 justify-between  py-3 my-3">
+        <div className='flex flex-row justify-start'>
           {authorImage ? (
             <Image
               src={authorImage}
@@ -44,7 +44,7 @@ export const Posts = ({
           ) : (
             <UserRound />
           )}
-          <span className="text-zinc-600 font-semibold">{author}</span>
+          <span className="text-zinc-600 ml-2 flex justify-center items-center font-semibold">{author}</span>
         </div>
         {isAuthor && (
           <div className="flex  gap-3">
